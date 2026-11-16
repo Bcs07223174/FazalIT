@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Fazal IT Content Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/studio.css">
+  <script src="/studio.js" type="module"></script>
+</head>
+<body>
+  <header class="top"><div class="brand"><span class="mark">F</span><strong>Fazal IT</strong><span class="division">Content Studio</span></div>
+    <button type="button" id="logout" class="secondary" hidden>Sign out</button></header>
+  <main>
+    <section id="login" class="login card">
+      <h1>Open Content Studio</h1>
+      <p class="muted">Enter your owner access token to review private drafts and run the five-agent workflow.</p>
+      <form id="login-form"><label for="token">Owner access token</label><input id="token" type="password" required autocomplete="off"><button>Open studio</button></form>
+    </section>
+    <p id="feedback" role="status" aria-live="polite" hidden></p>
+    <section id="studio" hidden>
+      <div class="heading"><div><div class="eyebrow"><span class="signal"></span>PRIVATE WORKSPACE</div><h1>LinkedIn workflow</h1><p class="muted">Run the pipeline, review the evidence and approve a specific revision.</p></div>
+        <div class="actions"><button class="secondary" id="refresh">Refresh</button><button id="new">New test run</button></div></div>
+      <ol class="pipeline" id="pipeline" aria-label="Agent pipeline"></ol>
+      <div class="workspace">
+        <section class="card runs"><div class="card-title"><h2>Run history</h2><span id="run-count" class="badge"></span></div><ul id="runs"></ul></section>
+        <section class="card detail" id="detail" aria-label="Selected run"><p class="muted">Select a run to inspect the handoffs.</p></section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
