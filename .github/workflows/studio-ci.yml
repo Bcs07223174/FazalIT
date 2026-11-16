@@ -1,0 +1,23 @@
+name: Content Studio CI
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: content-studio
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+      - run: npm test
+      - uses: cypress-io/github-action@v7
+        with:
+          working-directory: content-studio
+          install: false
+          start: npm run dev
+          wait-on: http://127.0.0.1:3000

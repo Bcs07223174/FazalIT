@@ -1,0 +1,15 @@
+{
+  "framework": null,
+  "outputDirectory": "public",
+  "functions": {
+    "api/studio.mjs": {
+      "maxDuration": 300
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/studio?action=cron",
+      "schedule": "*/5 4-5 * * *"
+    }
+  ]
+}
